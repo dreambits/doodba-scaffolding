@@ -1,19 +1,19 @@
 {
   "editor.formatOnSave": true,
+  "python.autoComplete.extraPaths": ["${workspaceRoot}/odoo/custom/src/odoo"],
   "python.formatting.blackArgs": [],
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
-  "python.linting.pylintEnabled": true,
+  "python.linting.ignorePatterns": ["${workspaceRoot}/odoo/custom/src/odoo"],
+  "python.pythonPath": "python{% if odoo_version < 11 %}2{% else %}3{% endif %}",
   "python.linting.pylintArgs": [
     "--init-hook=\"import sys;sys.path.append('${workspaceRoot}/odoo/custom/src/odoo')\"",
     "--load-plugins=pylint_odoo"
   ],
+  "python.linting.pylintEnabled": true,
   "restructuredtext.confPath": "",
   "search.followSymlinks": false,
-
-  // Allow easy shared poetry development
-  // HACK https://github.com/microsoft/vscode-python/issues/8372
-  "terminal.integrated.shellArgs.linux": ["-c", "poetry shell"],
+  "search.useIgnoreFiles": false,
 
   // Language-specific configurations
   "[python]": {
